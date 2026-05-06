@@ -861,9 +861,9 @@ function fallbackCopy(text){
   document.body.removeChild(ta);
 }
 function api(prompt,mt){
-  var fetchP=fetch("https://api.anthropic.com/v1/messages",{
+  var fetchP=fetch("/api/chat",{
     method:"POST",
-    headers:{"Content-Type":"application/json","x-api-key":"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","anthropic-version":"2023-06-01","anthropic-dangerous-direct-browser-access":"true"},
+    headers:{"Content-Type":"application/json"},
     body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:mt||1000,messages:[{role:"user",content:prompt}]})
   }).then(function(r){
     return r.json().then(function(data){
@@ -1203,14 +1203,14 @@ function TabDash(p){
   /* ── AI report generator ── */
   function genReport(){
     if(rptLoad)return;
-    setRptLoad(true);setRpt(""
-);
+    setRptLoad(true);setRpt("");
 
     var gradeStr = p.grade==="K"?"Kindergarten":(p.grade||"4")+"th Grade";
 
     // Always use the base STD (grade-4 original) for score lookups,
     // since all student scores are keyed to those standard IDs.
-    // This gives real data regardless of which grade tab is active.
+    // This gives rea
+l data regardless of which grade tab is active.
     var scoredStds = STD;
 
     // Build per-student summaries with NAMED standards
