@@ -863,7 +863,7 @@ function fallbackCopy(text){
 function api(prompt,mt){
   var fetchP=fetch("https://api.anthropic.com/v1/messages",{
     method:"POST",
-    headers:{"Content-Type":"application/json","x-api-key":"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","anthropic-version":"2023-06-01","anthropic-dangerous-direct-browser-access":"true"},
+    headers:{"Content-Type":"application/json","x-api-key":"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","anthropic-version":"2023-06-01","anthropic-dangerous-direct-browser-access":"true"},
     body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:mt||1000,messages:[{role:"user",content:prompt}]})
   }).then(function(r){
     return r.json().then(function(data){
